@@ -1,4 +1,4 @@
-cubes(document.getElementById("s1"), {
+cubes(document.querySelector("s322"), {
   columns: 3,
   rows: 6,
   color: 'rgba(28, 71, 123)',

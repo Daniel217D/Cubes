@@ -1,10 +1,10 @@
 let cubes = function(parent, settings) {
   if (!parent) {
-    console.log("Cubes: Element is undefined");
+    console.error("Cubes: Element is undefined");
     return
   }
   if (!parent.id) {
-    console.log("Cubes: Element must have id");
+    console.error("Cubes: Element must have id");
     return
   }
   const wNum = settings.columns || 10,
