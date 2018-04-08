@@ -1,5 +1,12 @@
 let cubes = function(parent, settings) {
-  if(parent.id==='') return;
+  if (!parent) {
+    console.log("Cubes: Element is undefined");
+    return
+  }
+  if (!parent.id) {
+    console.log("Cubes: Element must have id");
+    return
+  }
   const wNum = settings.columns || 10,
     hNum = settings.rows || 10,
     wCub = parent.offsetWidth / wNum,
@@ -74,7 +81,7 @@ let cubes = function(parent, settings) {
       element.style.left = wCub * parseInt(element.dataset.cubes) + "px";
 
       element.addEventListener("mouseenter", function() {
-          changeColor(parseInt(this.dataset.cubes), parseInt(this.parentNode.dataset.cubes));
+        changeColor(parseInt(this.dataset.cubes), parseInt(this.parentNode.dataset.cubes));
       });
     });
   });
@@ -98,7 +105,7 @@ let cubes = function(parent, settings) {
         if (allblocks[y][x + 1] !== undefined) changeColor(x + 1, y);
         if (allblocks[y - 1] !== undefined) changeColor(x, y - 1);
         if (allblocks[y + 1] !== undefined) changeColor(x, y + 1);
-        if (ammoutBlocks == ammountAllBlocks) {
+        if (ammoutBlocks === ammountAllBlocks) {
           ammoutBlocks = 0;
           toggleShow = !toggleShow;
         }
