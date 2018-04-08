@@ -13,6 +13,7 @@ let cubes = function(parent, settings) {
     hCub = parent.offsetHeight / hNum || wCub,
     speed = settings.speed || 100,
     transition = settings.transition + 'ms' || '1000ms';
+    let once = settings.once? -1:1;
   //generate grid
   {
     const color = settings.color || 'rgba(66, 134, 244, 1)';
@@ -80,8 +81,11 @@ let cubes = function(parent, settings) {
       allblocks[index][element.dataset.cubes] = element;
       element.style.left = wCub * parseInt(element.dataset.cubes) + "px";
 
-      element.addEventListener("mouseenter", function() {
-        changeColor(parseInt(this.dataset.cubes), parseInt(this.parentNode.dataset.cubes));
+      element.addEventListener("mouseenter",function handler () {
+        if(once){
+          once++;
+         changeColor(parseInt(this.dataset.cubes), parseInt(this.parentNode.dataset.cubes));
+       }
       });
     });
   });

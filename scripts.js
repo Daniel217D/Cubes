@@ -1,4 +1,4 @@
-cubes(document.querySelector("s322"), {
+cubes(document.querySelector("#s1"), {
   columns: 3,
   rows: 6,
   color: 'rgba(28, 71, 123)',
@@ -11,7 +11,8 @@ cubes(document.getElementById("s2"), {
   rows: 15,
   color: 'rgba(87, 28, 122, 0.8)',
   speed: 100,
-  transition: 1000
+  transition: 1000,
+  once:true
 });
 
 cubes(document.getElementById("s3"), {
@@ -19,5 +20,6 @@ cubes(document.getElementById("s3"), {
   rows: 25,
   color: 'rgba(28, 71, 123, 0.99)',
   speed: 50,
-  transition: 2000
+  transition: 2000,
+  once:false
 });
