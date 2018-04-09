@@ -28,8 +28,9 @@ let cubes = function(parent, settings) {
       html = html + `</div>`
     }
     html = html + `</div>`
-
-    if (parent.getElementsByClassName('cubes')[0]) {
+	
+	let delCubes = parent.getElementsByClassName('cubes')[0];
+    if (delCubes && delCubes.parentNode === parent) {
       parent.removeChild(parent.getElementsByClassName('cubes')[0]);
     }
 
