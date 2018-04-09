@@ -12,21 +12,16 @@
 <body>
   <div class="content" id="s1">
     <pre>
-cubes(element, {
-  columns: 3,
-  rows: 6,
-  color: #1c477a,
-  speed: 50,
-  transition: 2000
-});
-      </pre>
+cubes(element);
+    </pre>
   </div>
+
   <div class="content" id="s2">
     <pre>
 cubes(element, {
-  columns: 3,
+  columns: 4,
   rows: 6,
-  color: #1c477a,
+  color: 'rgba(28, 71, 123)',
   speed: 50,
   transition: 2000
 });
@@ -35,11 +30,25 @@ cubes(element, {
   <div class="content" id="s3">
     <pre>
 cubes(element, {
-  columns: 70,
-  rows: 30,
-  color: #1c477a,
-  speed: 250,
-  transition: 100
+  columns: 35,
+  rows: 15,
+  color: 'rgba(87, 28, 122, 0.8)',
+  speed: 100,
+  transition: 1000,
+  once:true
+});
+      </pre>
+  </div>
+  <div class="content" id="s4">
+    <pre>
+cubes(element, {
+  columns: 25,
+  rows: 25,
+  color: 'rgba(28, 71, 123, 0.99)',
+  speed: 50,
+  transition: 2000,
+  once:false,
+  diagonal:true
 });
       </pre>
   </div>

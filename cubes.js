@@ -7,17 +7,18 @@ let cubes = function(parent, settings) {
     console.error("Cubes: Element must have id");
     return
   }
-  const wNum = settings.columns || 10,
-    hNum = settings.rows || 10,
+  const wNum = settings ? settings.columns : 10,
+    hNum = settings ? settings.rows : 10,
     wCub = parent.offsetWidth / wNum,
-    hCub = parent.offsetHeight / hNum || wCub,
-    speed = settings.speed || 100,
-    transition = settings.transition + 'ms' || '1000ms';
-  let once = settings.once ? -1 : 1;
+    hCub = parent.offsetHeight ? parent.offsetHeight / hNum : wCub,
+    speed = settings ? settings.speed : 100,
+    transition = settings ? settings.transition + 'ms' : '1000ms',
+    diagonal = settings ? settings.diagonal : false;
+  let once = settings ? settings.once ? -1 : 1 : 1;
   //generate grid
   {
-    const color = settings.color || 'rgba(66, 134, 244, 1)',
-      position = getComputedStyle(parent).position;
+    const color = settings ? settings.color : 'rgba(66, 134, 244, 1)',
+      position = getComputedStyle(parent).position; 
     let html = '<div class="cubes">';
     for (let i = 0; i < hNum; i++) {
       html = html + ` <div class="cubes-row" data-cubes="${i}">`
@@ -117,6 +118,13 @@ let cubes = function(parent, settings) {
         if (allblocks[y][x + 1] !== undefined) changeColor(x + 1, y);
         if (allblocks[y - 1] !== undefined) changeColor(x, y - 1);
         if (allblocks[y + 1] !== undefined) changeColor(x, y + 1);
+
+        if (diagonal) {
+          if ((allblocks[y][x + 1] !== undefined) && (allblocks[y + 1] !== undefined)) changeColor(x + 1, y + 1);
+          if ((allblocks[y][x + 1] !== undefined) && (allblocks[y - 1] !== undefined)) changeColor(x + 1, y - 1);
+          if ((allblocks[y][x - 1] !== undefined) && (allblocks[y + 1] !== undefined)) changeColor(x - 1, y + 1);
+          if ((allblocks[y][x - 1] !== undefined) && (allblocks[y - 1] !== undefined)) changeColor(x - 1, y - 1);
+        }
         if (ammoutBlocks === ammountAllBlocks) {
           ammoutBlocks = 0;
           toggleShow = !toggleShow;

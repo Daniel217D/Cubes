@@ -8,14 +8,18 @@
   font-size: 22px;
 }
 #s1 {
-  width: 300px;
-  height: 600px;
+  width: 200px;
+  height: 200px;
 }
 #s2 {
+  width: 400px;
+  height: 600px;
+}
+#s3 {
   width: 700px;
   height: 300px;
 }
-#s3 {
+#s4 {
   width: 500px;
   height: 500px;
 }
