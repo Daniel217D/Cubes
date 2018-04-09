@@ -13,10 +13,11 @@ let cubes = function(parent, settings) {
     hCub = parent.offsetHeight / hNum || wCub,
     speed = settings.speed || 100,
     transition = settings.transition + 'ms' || '1000ms';
-    let once = settings.once? -1:1;
+  let once = settings.once ? -1 : 1;
   //generate grid
   {
-    const color = settings.color || 'rgba(66, 134, 244, 1)';
+    const color = settings.color || 'rgba(66, 134, 244, 1)',
+      position = getComputedStyle(parent).position;
     let html = '<div class="cubes">';
     for (let i = 0; i < hNum; i++) {
       html = html + ` <div class="cubes-row" data-cubes="${i}">`
@@ -27,13 +28,15 @@ let cubes = function(parent, settings) {
     }
     html = html + `</div>`
 
-    if(parent.getElementsByClassName('cubes')[0]){
+    if (parent.getElementsByClassName('cubes')[0]) {
       parent.removeChild(parent.getElementsByClassName('cubes')[0]);
     }
-    
+
     parent.innerHTML = parent.innerHTML + html;
 
-    parent.style.position = 'relative';
+    if ((position !== 'relative') && (position !== 'absolute') && (position !== 'fixed')) {
+      parent.style.position = 'relative';
+    }
     const css = `
     #${parent.id} .cubes {
       position: absolute;
@@ -86,11 +89,11 @@ let cubes = function(parent, settings) {
       allblocks[index][element.dataset.cubes] = element;
       element.style.left = wCub * parseInt(element.dataset.cubes) + "px";
 
-      element.addEventListener("mouseenter",function handler () {
-        if(once){
+      element.addEventListener("mouseenter", function handler() {
+        if (once) {
           once++;
-         changeColor(parseInt(this.dataset.cubes), parseInt(this.parentNode.dataset.cubes));
-       }
+          changeColor(parseInt(this.dataset.cubes), parseInt(this.parentNode.dataset.cubes));
+        }
       });
     });
   });
