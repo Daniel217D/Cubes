@@ -5,6 +5,13 @@ cubes(document.querySelector("#s1"), {
   speed: 50,
   transition: 2000
 });
+cubes(document.querySelector("#s1"), {
+  columns: 3,
+  rows: 6,
+  color: 'red',
+  speed: 5,
+  transition: 200
+});
 
 cubes(document.getElementById("s2"), {
   columns: 35,

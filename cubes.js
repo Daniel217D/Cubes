@@ -15,9 +15,10 @@ let cubes = function(parent, settings) {
     transition = settings.transition + 'ms' || '1000ms';
     let once = settings.once? -1:1;
   //generate grid
+
   {
     const color = settings.color || 'rgba(66, 134, 244, 1)';
-    let html = '<div class="cubs">';
+    let html = '<div class="cubes">';
     for (let i = 0; i < hNum; i++) {
       html = html + ` <div class="cubes-row" data-cubes="${i}">`
       for (let j = 0; j < wNum; j++) {
@@ -30,7 +31,7 @@ let cubes = function(parent, settings) {
 
     parent.style.position = 'relative';
     const css = `
-    #${parent.id} .cubs {
+    #${parent.id} .cubes {
       position: absolute;
       top:0;
       left:0;
