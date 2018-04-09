@@ -15,7 +15,6 @@ let cubes = function(parent, settings) {
     transition = settings.transition + 'ms' || '1000ms';
     let once = settings.once? -1:1;
   //generate grid
-
   {
     const color = settings.color || 'rgba(66, 134, 244, 1)';
     let html = '<div class="cubes">';
@@ -27,6 +26,11 @@ let cubes = function(parent, settings) {
       html = html + `</div>`
     }
     html = html + `</div>`
+
+    if(parent.getElementsByClassName('cubes')[0]){
+      parent.removeChild(parent.getElementsByClassName('cubes')[0]);
+    }
+    
     parent.innerHTML = parent.innerHTML + html;
 
     parent.style.position = 'relative';
